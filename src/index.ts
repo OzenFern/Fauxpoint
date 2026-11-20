@@ -1,15 +1,15 @@
-import { Elysia } from "elysia";
 import openapi, { fromTypes } from "@elysia/openapi";
+import app from "./app.ts";
 
-const app = new Elysia()
+app
   .use(
     openapi({
       references: fromTypes(),
     }),
   )
-  .get("/", () => "Hello Elysia")
   .listen(3000);
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`,
-);
+const appUrl = `${app.server?.protocol}://${app.server?.hostname}:${app.server?.port}`;
+
+console.log(`🦊 Elysia is running at ${appUrl}`);
+console.log(`Refer to documentation at ${appUrl}/openapi`);
