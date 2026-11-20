@@ -1,2 +1,6 @@
 #!/bin/sh
+set -e
+
 bun fmt --staged
+bun oxlint --type-aware
+bun check
