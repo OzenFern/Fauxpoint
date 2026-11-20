@@ -1,19 +1,29 @@
-# Elysia with Bun runtime
+# Fauxpoint
 
-## Getting Started
+A developer-focused HTTP mock API platform. Create mock endpoints via an authenticated management API and call them through workspace-specific public URLs:
 
-To get started with this template, simply paste this command into your terminal:
-
-```bash
-bun create elysia ./elysia-example
+```
+GET https://api.fauxpoint.dev/m/my-workspace/users/123
 ```
 
-## Development
+API-first backend — no frontend in v1.0.
 
-To start the development server run:
+## Stack
+
+Bun · TypeScript · Elysia · PostgreSQL · Drizzle ORM · Better Auth · Bun Test
+
+## Getting started
 
 ```bash
+bun install
 bun run dev
 ```
 
-Open http://localhost:3000/ with your browser to see the result.
+Server runs on http://localhost:3000 — OpenAPI docs at `/openapi`.
+
+## Commands
+
+```bash
+bun test          # run tests
+bun run verify    # fmt check + lint + typecheck
+```
