@@ -8,7 +8,8 @@
     "build": "bun build src/index.ts --outdir dist --target bun",
     "start": "bun dist/index.js",
     "test": "bun test",
-    "verify": "bun fmt --check && oxlint --type-aware && bun check"
+    "verify": "bun fmt --check && oxlint --type-aware && bun check",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "@elysia/openapi": "^2.0.0-rc.1",
