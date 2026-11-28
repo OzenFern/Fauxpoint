@@ -19,6 +19,28 @@ jobs:
   bun:
     name: bun
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:19
+        env:
+          POSTGRES_USER: fauxpoint
+          POSTGRES_PASSWORD: fauxpoint
+          POSTGRES_DB: fauxpoint_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U fauxpoint -d fauxpoint_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      POSTGRES_USER: fauxpoint
+      POSTGRES_PASSWORD: fauxpoint
+      POSTGRES_DB: fauxpoint_test
+      POSTGRES_URL: postgresql://fauxpoint:fauxpoint@localhost:5432/fauxpoint_test
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
